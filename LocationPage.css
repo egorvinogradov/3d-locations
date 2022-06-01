@@ -30,9 +30,10 @@
   --LocationPage-earth-land-color: #468772;
   --LocationPage-earth-sea-color: #E0E0D9;
   --LocationPage-earth-marker-color: #000000;
-  --LocationPage-earth-marker-point-size: 25px;
+  --LocationPage-earth-marker-point-size: 50px;
   --LocationPage-earth-marker-point-ratio: 50%;
-  --LocationPage-earth-marker-axis-size: calc(var(--LocationPage-earth-size) / 4);
+  --LocationPage-earth-marker-axis-length: calc(var(--LocationPage-earth-size) / 2);
+  --LocationPage-earth-marker-axis-width: 2px;
 
   --LocationPage-fade-height: 15vh;
 
@@ -212,13 +213,14 @@ html, body {
 
 .LocationPage-marker {
   position: relative;
+  transform: scale(.42);
 }
 
 .LocationPage-marker-x-axis,
 .LocationPage-marker-y-axis {
   position: absolute;
-  height: var(--LocationPage-earth-marker-axis-size);
-  width: 1px;
+  height: var(--LocationPage-earth-marker-axis-length);
+  width: var(--LocationPage-earth-marker-axis-width);
   transform-origin: top;
   transition: transform 400ms;
 }
@@ -237,8 +239,8 @@ html, body {
 .LocationPage-marker-y-axis:after {
   content: '';
   position: absolute;
-  height: var(--LocationPage-earth-marker-axis-size);
-  width: 1px;
+  height: var(--LocationPage-earth-marker-axis-length);
+  width: var(--LocationPage-earth-marker-axis-width);
   background: black;
   transform-origin: top;
 }
@@ -262,6 +264,7 @@ html, body {
   left: calc(var(--LocationPage-earth-marker-point-size) / -2);
   top: calc(var(--LocationPage-earth-marker-point-size) / -2);
   z-index: 2;
+  margin-left: 1px;
   transform: scale(0);
   transition: transform 500ms ease-in-out 250ms;
 }
