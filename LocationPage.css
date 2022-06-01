@@ -1,0 +1,316 @@
+@font-face {
+  font-family: 'ABC Whyte';
+  font-weight: bold;
+  font-style: normal;
+  src: url('/fonts/Whyte-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'ABC Whyte';
+  font-weight: normal;
+  font-style: italic;
+  src: url('/fonts/Whyte-Italic.woff') format('woff');
+}
+
+
+
+/* VARIABLES */
+
+:root {
+  --LocationPage-text-size: 16px;
+  --LocationPage-header-size: 40px;
+
+  --LocationPage-margin-medium: 3.5vh;
+  --LocationPage-margin-large: 4.5vh;
+  --LocationPage-margin-huge: 7.5vh;
+  --LocationPage-margin-double-huge: calc(var(--LocationPage-margin-huge) + var(--LocationPage-margin-large));
+
+  --LocationPage-earth-size: 400px;
+
+  --LocationPage-earth-land-color: #468772;
+  --LocationPage-earth-sea-color: #E0E0D9;
+  --LocationPage-earth-marker-color: #000000;
+  --LocationPage-earth-marker-point-size: 25px;
+  --LocationPage-earth-marker-point-ratio: 50%;
+  --LocationPage-earth-marker-axis-size: calc(var(--LocationPage-earth-size) / 4);
+
+  --LocationPage-fade-height: 15vh;
+
+  --LocationPage-content-top-offset: 0;
+  --LocationPage-content-bottom-offset: calc(40vh - var(--LocationPage-fade-height));
+}
+
+@media (max-width: 1199px) {
+  :root {
+    --LocationPage-earth-size: 370px;
+    --LocationPage-margin-medium: 30px;
+    --LocationPage-margin-large: 50px;
+    --LocationPage-margin-huge: 100px;
+  }
+}
+
+@media (max-width: 991px) {
+  :root {
+    --LocationPage-earth-size: 330px;
+    --LocationPage-margin-medium: 25px;
+    --LocationPage-margin-large: 35px;
+    --LocationPage-margin-huge: 65px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --LocationPage-earth-size: calc(100vw - (var(--LocationPage-earth-mobile-offset) * 2) - 30px);
+    --LocationPage-earth-mobile-offset: 15vw;
+
+    --LocationPage-content-top-offset: calc(var(--LocationPage-earth-size) + var(--LocationPage-earth-mobile-offset));
+    --LocationPage-content-bottom-offset: calc(var(--LocationPage-margin-double-huge) - var(--LocationPage-fade-height));
+    --LocationPage-fade-height: 10vh;
+  }
+}
+
+
+
+/* BASIC LAYOUT */
+
+html, body {
+  font: var(--LocationPage-text-size) / calc(var(--LocationPage-text-size) * 1.2) 'ABC Whyte', 'Helvetica Neue', Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.LocationPage-splash {
+  background: #1A1A1A;
+  color: #FFFFFF;
+  text-align: center;
+  padding-top: var(--LocationPage-margin-double-huge);
+  padding-bottom: var(--LocationPage-margin-double-huge);
+}
+
+.LocationPage-splash-title {
+  font-size: var(--LocationPage-header-size);
+  line-height: calc(var(--LocationPage-header-size) * 1.2);
+  margin: 0 0 calc(var(--LocationPage-margin-large) - var(--LocationPage-header-size) * 0.33) 0;
+}
+
+
+
+/* EARTH & LOCATION STICKY CONTAINERS */
+
+.LocationPage-earth {
+  top: calc((100vh - var(--LocationPage-earth-size)) / 2);
+  margin-top: var(--LocationPage-margin-double-huge);
+  position: sticky !important;
+  z-index: 2;
+  height: fit-content;
+}
+
+.LocationPage-earth-container {
+  width: var(--LocationPage-earth-size);
+  height: var(--LocationPage-earth-size);
+  border-radius: 100%;
+  background-size: cover;
+}
+
+
+
+
+.LocationPage-screen--xs .LocationPage-earth,
+.LocationPage-screen--sm .LocationPage-earth {
+  margin-top: var(--LocationPage-earth-mobile-offset);
+  top: var(--LocationPage-earth-mobile-offset);
+  background: #FFFFFF;
+}
+
+.LocationPage-screen--xs .LocationPage-earth:before,
+.LocationPage-screen--sm .LocationPage-earth:before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  height: var(--LocationPage-earth-mobile-offset);
+  background: #FFFFFF;
+}
+
+.LocationPage-screen--xs .LocationPage-earth-container,
+.LocationPage-screen--sm .LocationPage-earth-container {
+  margin: 0 auto;
+}
+
+
+
+
+.LocationPage-locations-boundary {
+  margin-right: var(--LocationPage-margin-large);
+  position: relative;
+}
+
+.LocationPage-locations-boundary:before,
+.LocationPage-locations-boundary:after {
+  content: '';
+  position: sticky;
+  display: block;
+  width: 100%;
+  height: var(--LocationPage-fade-height);
+}
+
+.LocationPage-locations-boundary:before {
+  top: var(--LocationPage-content-top-offset);
+  margin-bottom: calc(var(--LocationPage-margin-double-huge) - var(--LocationPage-fade-height));
+  background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+}
+
+.LocationPage-screen--xs .LocationPage-locations-boundary:before,
+.LocationPage-screen--sm .LocationPage-locations-boundary:before {
+  margin-bottom: calc(var(--LocationPage-margin-huge) - var(--LocationPage-fade-height));
+}
+
+
+
+
+.LocationPage-locations-boundary:after {
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+}
+
+
+
+/* LOCATION BLOCKS */
+
+.LocationPage-location {
+  margin-top: var(--LocationPage-margin-huge);
+}
+
+.LocationPage-location:first-child {
+  margin-top: 0;
+}
+
+.LocationPage-location:last-child {
+  margin-bottom: var(--LocationPage-content-bottom-offset);
+}
+
+.LocationPage-location-place {
+  margin: 0 0 calc(var(--LocationPage-margin-medium) - var(--LocationPage-text-size) * 0.33) 0;
+}
+
+.LocationPage-location-name {
+  font-weight: normal;
+  font-size: var(--LocationPage-header-size);
+  line-height: calc(var(--LocationPage-header-size) * 1.2);
+  margin: 0 0 calc(var(--LocationPage-margin-large) - var(--LocationPage-header-size) * 0.33) 0;
+}
+
+.LocationPage-location-description {
+  margin: 0;
+}
+
+
+
+/* MARKER */
+
+.LocationPage-marker {
+  position: relative;
+}
+
+.LocationPage-marker-x-axis,
+.LocationPage-marker-y-axis {
+  position: absolute;
+  height: var(--LocationPage-earth-marker-axis-size);
+  width: 1px;
+  transform-origin: top;
+  transition: transform 400ms;
+}
+
+.LocationPage-marker-x-axis {
+  transform: scaleY(0);
+}
+
+.LocationPage-marker-y-axis {
+  transform: scaleX(0);
+}
+
+.LocationPage-marker-x-axis:before,
+.LocationPage-marker-x-axis:after,
+.LocationPage-marker-y-axis:before,
+.LocationPage-marker-y-axis:after {
+  content: '';
+  position: absolute;
+  height: var(--LocationPage-earth-marker-axis-size);
+  width: 1px;
+  background: black;
+  transform-origin: top;
+}
+
+.LocationPage-marker-x-axis:after {
+  transform: rotate(180deg);
+}
+
+.LocationPage-marker-y-axis:before {
+  transform: rotate(90deg);
+}
+
+.LocationPage-marker-y-axis:after {
+  transform: rotate(270deg);
+}
+
+.LocationPage-marker-point {
+  width: var(--LocationPage-earth-marker-point-size);
+  height: var(--LocationPage-earth-marker-point-size);
+  position: absolute;
+  left: calc(var(--LocationPage-earth-marker-point-size) / -2);
+  top: calc(var(--LocationPage-earth-marker-point-size) / -2);
+  z-index: 2;
+  transform: scale(0);
+  transition: transform 500ms ease-in-out 250ms;
+}
+
+.LocationPage-marker-point:before {
+  content: '';
+  width: var(--LocationPage-earth-marker-point-ratio);
+  height: var(--LocationPage-earth-marker-point-ratio);
+  top: calc((100% - var(--LocationPage-earth-marker-point-ratio)) / 2);
+  left: calc((100% - var(--LocationPage-earth-marker-point-ratio)) / 2);
+  background: var(--LocationPage-earth-marker-color);
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+.LocationPage-marker-point:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  box-shadow: inset 0 0 0 1px var(--LocationPage-earth-marker-color);
+  transform: rotate(45deg);
+  opacity: 1;
+  transition: opacity 500ms ease-in-out 250ms;
+}
+
+
+
+/* MARKER SWITCHING STATE */
+
+.LocationPage-marker--active .LocationPage-marker-x-axis {
+  transform: scaleY(1);
+}
+
+.LocationPage-marker--active .LocationPage-marker-y-axis {
+  transform: scaleX(1);
+}
+
+.LocationPage-marker--active .LocationPage-marker-x-axis,
+.LocationPage-marker--active .LocationPage-marker-y-axis {
+  transition: transform 400ms ease-in-out 300ms;
+}
+
+.LocationPage-marker--active .LocationPage-marker-point {
+  transform: scale(1);
+  transition: transform 500ms;
+}
+
+.LocationPage-marker--active .LocationPage-marker-point:after {
+  opacity: 0;
+  transition: opacity 500ms;
+}

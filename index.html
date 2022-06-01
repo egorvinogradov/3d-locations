@@ -1,0 +1,144 @@
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/libs/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="/LocationPage.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LukaNet</title>
+</head>
+<body class="bootstrap-wrapper">
+
+<div class="LocationPage-splash">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h1 class="LocationPage-splash-title">LukaNet around the&nbsp;world</h1>
+        <p>
+          With 14 locations worldwide and a strong international partner
+          network, we&nbsp;are&nbsp;always close to our customers and know their
+          requirements. As we continue to&nbsp;become more international, new
+          challenges and projects are constantly arising. Learn more about
+          our offices:
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="LocationPage-earth col-md-6 col-lg-5 order-md-last">
+      <div class="LocationPage-earth-container js-earth-container"></div>
+    </div>
+
+    <div class="col-md-6 col-lg-5 offset-lg-1">
+      <div class="LocationPage-locations-boundary">
+
+        <div class="LocationPage-location js-location" data-latitude="52.520008" data-longitude="13.404954">
+          <h1 class="LocationPage-location-name">Germany</h1>
+          <p class="LocationPage-location-place">Berlin</p>
+          <p class="LocationPage-location-description">
+            Here is the body text: Everything began in Munich in 1999. In&nbsp;2005, we
+            moved to the German capital, where the doors to our Berlin headquarters
+            officially opened. We are now represented in three cities in Germany.
+            With two further consulting hubs in Hamburg and Stuttgart and a strong
+            partner network, we can offer our customers an all-round LucaNet package
+            everywhere in Germany.
+          </p>
+        </div>
+
+        <div class="LocationPage-location js-location" data-latitude="48.210033" data-longitude="16.363449">
+          <h1 class="LocationPage-location-name">Austria</h1>
+          <p class="LocationPage-location-place">Vienna</p>
+          <p class="LocationPage-location-description">
+            Here is the body text: Everything began in Munich in 1999. In&nbsp;2005, we
+            moved to the German capital, where the doors to our Berlin headquarters
+            officially opened. We are now represented in three cities in Germany.
+            With two further consulting hubs in Hamburg and Stuttgart and a strong
+            partner network, we can offer our customers an all-round LucaNet package
+            everywhere in Germany.
+          </p>
+        </div>
+
+        <div class="LocationPage-location js-location" data-latitude="47.3686498" data-longitude="8.5391825">
+          <h1 class="LocationPage-location-name">Switzerland</h1>
+          <p class="LocationPage-location-place">Zurich</p>
+          <p class="LocationPage-location-description">
+            Here is the body text: Everything began in Munich in 1999. In&nbsp;2005, we
+            moved to the German capital, where the doors to our Berlin headquarters
+            officially opened. We are now represented in three cities in Germany.
+            With two further consulting hubs in Hamburg and Stuttgart and a strong
+            partner network, we can offer our customers an all-round LucaNet package
+            everywhere in Germany.
+          </p>
+        </div>
+
+        <div class="LocationPage-location js-location" data-latitude="51.260197" data-longitude="4.402771">
+          <h1 class="LocationPage-location-name">Belgium</h1>
+          <p class="LocationPage-location-place">Antwerp</p>
+          <p class="LocationPage-location-description">
+            Here is the body text: Everything began in Munich in 1999. In&nbsp;2005, we
+            moved to the German capital, where the doors to our Berlin headquarters
+            officially opened. We are now represented in three cities in Germany.
+            With two further consulting hubs in Hamburg and Stuttgart and a strong
+            partner network, we can offer our customers an all-round LucaNet package
+            everywhere in Germany.
+          </p>
+        </div>
+
+        <div class="LocationPage-location js-location" data-latitude="52.377956" data-longitude="4.897070">
+          <h1 class="LocationPage-location-name">Netherlands</h1>
+          <p class="LocationPage-location-place">Amsterdam</p>
+          <p class="LocationPage-location-description">
+            Here is the body text: Everything began in Munich in 1999. In&nbsp;2005, we
+            moved to the German capital, where the doors to our Berlin headquarters
+            officially opened. We are now represented in three cities in Germany.
+            With two further consulting hubs in Hamburg and Stuttgart and a strong
+            partner network, we can offer our customers an all-round LucaNet package
+            everywhere in Germany.
+          </p>
+        </div>
+
+        <div class="LocationPage-location js-location" data-latitude="1.290270" data-longitude="103.851959">
+          <h1 class="LocationPage-location-name">Singapore</h1>
+          <p class="LocationPage-location-place">Tanjong Pagar</p>
+          <p class="LocationPage-location-description">
+            Here is the body text: Everything began in Munich in 1999. In&nbsp;2005, we
+            moved to the German capital, where the doors to our Berlin headquarters
+            officially opened. We are now represented in three cities in Germany.
+            With two further consulting hubs in Hamburg and Stuttgart and a strong
+            partner network, we can offer our customers an all-round LucaNet package
+            everywhere in Germany.
+          </p>
+        </div>
+
+        <div class="LocationPage-location js-location" data-latitude="37.773972" data-longitude="-122.431297">
+          <h1 class="LocationPage-location-name">United States</h1>
+          <p class="LocationPage-location-place">San Francisco</p>
+          <p class="LocationPage-location-description">
+            Here is the body text: Everything began in Munich in 1999. In&nbsp;2005, we
+            moved to the German capital, where the doors to our Berlin headquarters
+            officially opened. We are now represented in three cities in Germany.
+            With two further consulting hubs in Hamburg and Stuttgart and a strong
+            partner network, we can offer our customers an all-round LucaNet package
+            everywhere in Germany.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="/libs/miniature.earth.js"></script>
+<script src="/utils.js"></script>
+<script src="/LocationPage.js"></script>
+<script>
+  window.page = new LocationPage({
+    earthContainerSelector: '.js-earth-container',
+    locationBlocksSelector: '.js-location',
+  });
+</script>
+</body>
+</html>
